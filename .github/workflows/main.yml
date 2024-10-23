@@ -3,7 +3,7 @@ name: Build OrangeFox Recovery
 on:
   push:
     branches:
-      - master
+      - master  # Asegúrate de que esto sea la rama correcta donde estás trabajando
 
 jobs:
   build:
@@ -17,9 +17,9 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: 'temurin'  # Agrega esto para solucionar el error
 
       - name: Build OrangeFox
         run: |
-          cd Recovery-Builder-NoKernel  # Cambia al directorio donde está build.sh
-          chmod +x build.sh
-          ./build.sh
+          chmod +x build.sh  # Asegúrate de que la ruta sea correcta
+          ./build.sh  # Asegúrate de que build.sh esté en el directorio raíz del repositorio
